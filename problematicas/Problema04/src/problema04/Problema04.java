@@ -15,31 +15,33 @@ public class Problema04 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        int limite = 15;
-        int numerador = 1;
-        int denominador = 1;
-        String signo;
-        String cadena = "";
-        
-        do { 
-            if (denominador % 2 == 0) {
-                signo = "-";
+        public static void main(String[] args) {
+        int numerador = 0;
+        int denominador = 3;
+        int contador = 0;
+        String cadena_A = "1";
+
+        while (contador <= 8) {
+
+            if (contador % 2 == 0) {
+                numerador = +1 / denominador;
+
+                cadena_A = String.format("%s- 1/%d ",
+                        cadena_A,
+                        denominador);
             } else {
-                signo = "+";
+                numerador = -1 / denominador;
+
+                cadena_A = String.format("%s+ 1/%d ",
+                        cadena_A,
+                        denominador);           
             }
-            
-            cadena = String.format("%s%s%d/%d ", 
-                    cadena,
-                    signo,
-                    numerador, 
-                    denominador);
+
             denominador = denominador + 2;
-
-        } while (denominador <= limite);
-
-        System.out.println(cadena);
+            contador = contador + 1;
+        }
+        
+        System.out.printf("%s\n", cadena_A);
     }
     
 }
